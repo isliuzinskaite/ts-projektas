@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Box, Container, Typography, Button,
+  Box, Container, Typography,
 } from '@mui/material';
 import Section from '../components/section';
 import VoteButton from '../components/voting';
@@ -29,36 +29,6 @@ const VietovesPage: React.FC = () => (
 
     <Section>
       <img src={NamasImgSrc} alt="" />
-    </Section>
-
-    <Section>
-      <Typography component="h2" variant="h4" sx={{ mb: 2 }}>
-        SPALVOTAS PASAULIS
-      </Typography>
-      <Typography sx={{ color: 'red.main' }}>
-        RAUDONA SPALVA REIŠKIA UGNĮ
-      </Typography>
-      <Typography sx={{ color: 'blue.main' }}>
-        MĖLYNA SPALVA REIŠKIA ERDVĘ
-      </Typography>
-      <Typography sx={{ color: 'green.main' }}>
-        ŽALIA SPALVA REIŠKIA PAVASARĮ
-      </Typography>
-    </Section>
-
-    <Section>
-      <Typography component="h2" variant="h4" sx={{ mb: 2 }}>
-        Spalvų mygtukai
-      </Typography>
-      <Button variant="contained" color="red">
-        raudonas
-      </Button>
-      <Button variant="contained" color="green">
-        žalias
-      </Button>
-      <Button variant="contained" color="blue">
-        mėlynas
-      </Button>
     </Section>
   </Container>
 );

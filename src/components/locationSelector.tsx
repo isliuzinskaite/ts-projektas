@@ -4,11 +4,8 @@ import {
 } from '@mui/material';
 import { store } from '../store';
 
-const state = store.getState();
-console.log(state.counter.data);
-
 const LocationSelector: React.FC = () => {
-  const x = 'Labas';
+  const state = store.getState();
   return (
     <div>
       {state.counter.data.map((entry, idx) => (
