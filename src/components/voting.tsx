@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  Button,
+} from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { increment } from '../counterSlice';
@@ -8,13 +11,12 @@ const Voting: React.FC = () => {
   const dispatch = useDispatch();
   return (
     <div>
-      <button
-        type="button"
-        aria-label="Vote"
+      <Button
+        variant="contained"
         onClick={() => dispatch(increment())}
       >
-        Vote
-      </button>
+        Balsuoti
+      </Button>
       <div>
         Balsai:
         {count}
