@@ -5,9 +5,11 @@ import {
 import Section from '../components/section';
 import VoteButton from '../components/voting';
 import NamasImgSrc from './namas.jpg';
+import LocationSelector from '../components/locationSelector';
 
 const VietovesPage: React.FC = () => (
   <Container sx={{ my: 5 }}>
+
     <VoteButton />
     <Section>
       <Typography component="h1" variant="h3">
@@ -21,11 +23,7 @@ const VietovesPage: React.FC = () => (
         Žemėlapis
       </Typography>
       <Box sx={{ mt: 4 }}>
-        <Button variant="contained">Mažoji Lietuva</Button>
-        <Button variant="contained">Žemaitija</Button>
-        <Button variant="contained">Aukštaitija</Button>
-        <Button variant="contained">Suvalkija</Button>
-        <Button variant="contained">Dzūkija</Button>
+        <LocationSelector />
       </Box>
     </Section>
 

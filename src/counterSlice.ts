@@ -1,12 +1,54 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+interface Entry { [key: string]: (string | number); }
+
 export interface CounterState {
+  data: Entry[],
   values: number[]
 }
 
 const initialState: CounterState = {
   values: [],
+  data: [
+    {
+      id: 'mazoji-lietuva',
+      region: 'Mažoji Lietuva',
+      name: 'Dvaras A',
+      imageURL: '',
+      clickCount: 0,
+    },
+    {
+      id: 'zemaitija',
+      region: 'Žemaitija',
+      name: 'Dvaras B',
+      imageURL: '',
+      clickCount: 0,
+    },
+    {
+      id: 'aukstaitija',
+      region: 'Aukštaitija',
+      name: 'Dvaras C',
+      imageURL: '',
+      clickCount: 0,
+    },
+    {
+      id: 'suvalkija',
+      region: 'Suvalkija',
+      name: 'Dvaras D',
+      imageURL: '',
+      clickCount: 0,
+    },
+    {
+      id: 'dzukija',
+      region: 'Dzūkija',
+      name: 'Dvaras E',
+      imageURL: '',
+      clickCount: 0,
+    },
+  ],
 };
+
+let clickCount = 0;
 
 export const counterSlice = createSlice({
   name: 'counter',
@@ -19,16 +61,14 @@ export const counterSlice = createSlice({
       // immutable state based off those changes
       state.values.push(1);
     },
-    decrement: (state) => {
-      state.values.push(-1);
-    },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.values.push(action.payload);
+    get: (state) => {
+      clickCount += 1;
+      return state;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { increment, get } = counterSlice.actions;
 
 export default counterSlice.reducer;
