@@ -3,10 +3,12 @@ import {
   Box, Container, Typography, Button,
 } from '@mui/material';
 import Section from '../components/section';
+import VoteButton from '../components/voting';
 import NamasImgSrc from './namas.jpg';
 
 const VietovesPage: React.FC = () => (
   <Container sx={{ my: 5 }}>
+    <VoteButton />
     <Section>
       <Typography component="h1" variant="h3">
         Vietovės
