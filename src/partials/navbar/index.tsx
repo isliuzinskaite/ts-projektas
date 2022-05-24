@@ -1,14 +1,23 @@
 import React from 'react';
 import {
   AppBar,
-  Container,
   Box,
+  Button,
+  Toolbar,
+  Typography,
 } from '@mui/material';
 import NavbarLink from './navbar-link';
 
 const Navbar: React.FC = () => (
   <AppBar position="static" sx={{ bgcolor: 'grey.900' }}>
-    <Container sx={{ px: { xs: 0, sm: 0 } }}>
+    <Toolbar sx={{ flexWrap: 'wrap' }}>
+      <Typography
+        variant="h6"
+        noWrap
+        sx={{ flexGrow: 1 }}
+      >
+        Nakvok
+      </Typography>
       <Box sx={(theme) => theme.mixins.navbar}>
         <Box sx={{ alignSelf: 'stretch' }}>
           <NavbarLink to="/">Pagrindinis</NavbarLink>
@@ -16,7 +25,10 @@ const Navbar: React.FC = () => (
           <NavbarLink to="/ispudziai">Įspūdžiai</NavbarLink>
         </Box>
       </Box>
-    </Container>
+      <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+        Prisijungti
+      </Button>
+    </Toolbar>
   </AppBar>
 );
 
