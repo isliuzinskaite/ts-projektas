@@ -8,7 +8,7 @@ import {
 import HomePage from './pages/home-page';
 import VietovesPage from './pages/vietoves-page';
 import IspudziaiPage from './pages/ispudziai-page';
-import LandingPageLayout from './components/landing-page-layout';
+import LandingPageLayout from './layouts/landing-page-layout';
 
 const App: React.FC = () => (
   <BrowserRouter>
