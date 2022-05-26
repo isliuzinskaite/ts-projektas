@@ -7,7 +7,7 @@ import VoteButton from '../components/voting';
 import NamasImgSrc from './namas.jpg';
 import LocationSelector from '../components/locationSelector';
 
-const VietovesPage: React.FC = () => (
+const RegionsPage: React.FC = () => (
   <Container sx={{ my: 5 }}>
 
     <VoteButton />
@@ -33,4 +33,4 @@ const VietovesPage: React.FC = () => (
   </Container>
 );
 
-export default VietovesPage;
+export default RegionsPage;

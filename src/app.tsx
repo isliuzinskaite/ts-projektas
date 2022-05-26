@@ -6,8 +6,8 @@ import {
 } from 'react-router-dom';
 
 import HomePage from './pages/home-page';
-import VietovesPage from './pages/vietoves-page';
-import IspudziaiPage from './pages/ispudziai-page';
+import RegionsPage from './pages/regions-page';
+import ImpressionsPage from './pages/impressions-page';
 import LandingPageLayout from './layouts/landing-page-layout';
 
 const App: React.FC = () => (
@@ -15,8 +15,8 @@ const App: React.FC = () => (
     <Routes>
       <Route path="/" element={<LandingPageLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="vietoves" element={<VietovesPage />} />
-        <Route path="ispudziai" element={<IspudziaiPage />} />
+        <Route path="vietoves" element={<RegionsPage />} />
+        <Route path="ispudziai" element={<ImpressionsPage />} />
       </Route>
     </Routes>
   </BrowserRouter>
