@@ -18,7 +18,7 @@ const Locations: React.FC = () => {
         {error
           && <>O ne, kažkas nepavyko</> }
         {isLoading
-          && <>Loading...</> }
+          && <>Kraunama...</> }
         {data
           && data.map((location) => (
             <Grid
@@ -31,7 +31,7 @@ const Locations: React.FC = () => {
               <Card>
                 <CardHeader
                   title={location.region}
-                  subheader={`${location.count} būstai`}
+                  subheader={`${location.properties.length} būstai`}
                   titleTypographyProps={{ align: 'center' }}
                 />
                 <CardMedia
@@ -43,6 +43,7 @@ const Locations: React.FC = () => {
                   <Button
                     fullWidth
                     variant="outlined"
+                    href={`/location/${location.id}`}
                   >
                     Matyti visus būstus
                   </Button>

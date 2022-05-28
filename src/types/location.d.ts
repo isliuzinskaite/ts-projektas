@@ -1,10 +1,18 @@
+type Property = {
+  id: string,
+  title: string,
+  locationId: string,
+  address: string,
+  image: string,
+  phone: string,
+};
+
 type Location = {
   id: string,
   region: string,
-  name: string,
   imageURL: string,
-  count: number,
   clickCount: number,
+  properties: Property[],
 };
 
 export default Location;

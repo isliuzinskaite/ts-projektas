@@ -3,6 +3,7 @@ import {
   AppBar,
   Box,
   Button,
+  Link,
   Toolbar,
   Typography,
 } from '@mui/material';
@@ -16,7 +17,9 @@ const Navbar: React.FC = () => (
         noWrap
         sx={{ flexGrow: 1 }}
       >
-        Nakvok
+        <Link href="/" underline="none">
+          Nakvok
+        </Link>
       </Typography>
       <Box sx={(theme) => theme.mixins.navbar}>
         <Box sx={{ alignSelf: 'stretch' }}>

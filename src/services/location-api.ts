@@ -6,9 +6,15 @@ export const locationApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8000/' }),
   endpoints: (builder) => ({
     getAll: builder.query<Location[], void>({
-      query: () => 'locations',
+      query: () => 'locations?_embed=properties',
+    }),
+    getLocation: builder.query<Location, string>({
+      query: (id) => `locations/${id}?_embed=properties`,
     }),
   }),
 });
 
-export const { useGetAllQuery } = locationApi;
+export const {
+  useGetAllQuery,
+  useGetLocationQuery,
+} = locationApi;
