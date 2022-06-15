@@ -28,7 +28,7 @@ const Navbar: React.FC = () => (
           <NavbarLink to="/ispudziai">Įspūdžiai</NavbarLink>
         </Box>
       </Box>
-      <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+      <Button href="/login" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
         Prisijungti
       </Button>
     </Toolbar>
