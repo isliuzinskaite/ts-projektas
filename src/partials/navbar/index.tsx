@@ -7,16 +7,11 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material';
+import getAdmin from '../../services/get-admin';
 import NavbarLink from './navbar-link';
 
 const Navbar: React.FC = () => {
-  const [admin] = useState(() => {
-    const adminString = localStorage.getItem('admin');
-    if (adminString) {
-      return JSON.parse(adminString);
-    }
-    return null;
-  });
+  const [admin] = useState(getAdmin);
 
   // https://serverless-stack.com/chapters/load-the-state-from-the-session.html
   const logout = () => {
@@ -37,10 +32,8 @@ const Navbar: React.FC = () => {
           </Link>
         </Typography>
         <Box sx={(theme) => theme.mixins.navbar}>
-          <Box sx={{ alignSelf: 'stretch' }}>
+          <Box sx={{ alignSelf: 'stretch', mr: 3 }}>
             <NavbarLink to="/">Pagrindinis</NavbarLink>
-            <NavbarLink to="/vietoves">Vietovės</NavbarLink>
-            <NavbarLink to="/ispudziai">Įspūdžiai</NavbarLink>
           </Box>
         </Box>
         {admin

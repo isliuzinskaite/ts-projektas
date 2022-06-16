@@ -1,4 +1,4 @@
-type Property = {
+type OldProperty = {
   id: string,
   title: string,
   locationId: string,
@@ -7,12 +7,12 @@ type Property = {
   phone: string,
 };
 
-type Location = {
+type OldLocation = {
   id: string,
   region: string,
   imageURL: string,
   clickCount: number,
-  properties: Property[],
+  properties: OldProperty[],
 };
 
-export default Location;
+export default OldLocation;

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { increment } from '../counterSlice';
 
-const Voting: React.FC = () => {
+const OldVoting: React.FC = () => {
   const count = useSelector((state: RootState) => state.counter.values.reduce((a, b) => a + b, 0));
   const dispatch = useDispatch();
   return (
@@ -25,4 +25,4 @@ const Voting: React.FC = () => {
   );
 };
 
-export default Voting;
+export default OldVoting;

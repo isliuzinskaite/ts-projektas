@@ -5,24 +5,24 @@ import {
   Container,
 } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import LocationDetails from '../components/location-details';
+import RegionDetails from '../components/region-details';
 import getAdmin from '../services/get-admin';
 
-const LocationPage: React.FC = () => {
+const RegionPage: React.FC = () => {
   const [admin] = useState(getAdmin);
-  const { locationId } = useParams() as { locationId: string };
+  const { regionId } = useParams() as { regionId: string };
 
   return (
     <Container sx={{ mt: 4 }}>
-      <LocationDetails />
+      <RegionDetails />
       {admin
         && (
           <Box sx={{ mt: 4, p: 1.5 }}>
-            <Button href={`/locations/${locationId}/properties/new`} variant="contained">Pridėti būstą</Button>
+            <Button href={`/regions/${regionId}/locations/new`} variant="contained">Pridėti vietovę</Button>
           </Box>
         )}
     </Container>
   );
 };
 
-export default LocationPage;
+export default RegionPage;

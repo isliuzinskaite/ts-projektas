@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Typography } from '@mui/material';
 
-const ImpressionsPage: React.FC = () => (
+const OldImpressionsPage: React.FC = () => (
   <Container sx={{ my: 5 }}>
     <Typography component="h1" variant="h3">
       Įspūdžiai
@@ -16,4 +16,4 @@ const ImpressionsPage: React.FC = () => (
   </Container>
 );
 
-export default ImpressionsPage;
+export default OldImpressionsPage;

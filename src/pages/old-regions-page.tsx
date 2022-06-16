@@ -2,16 +2,16 @@ import React from 'react';
 import {
   Box, Container, Typography,
 } from '@mui/material';
-import Section from '../components/section';
-import VoteButton from '../components/voting';
+import OldSection from '../components/old-section';
+import OldVoteButton from '../components/old-voting';
 import NamasImgSrc from './namas.jpg';
-import LocationSelector from '../components/locationSelector';
+import OldLocationSelector from '../components/old-location-selector';
 
-const RegionsPage: React.FC = () => (
+const OldRegionsPage: React.FC = () => (
   <Container sx={{ my: 5 }}>
 
-    <VoteButton />
-    <Section>
+    <OldVoteButton />
+    <OldSection>
       <Typography component="h1" variant="h3">
         Vietovės
       </Typography>
@@ -23,14 +23,14 @@ const RegionsPage: React.FC = () => (
         Žemėlapis
       </Typography>
       <Box sx={{ mt: 4 }}>
-        <LocationSelector />
+        <OldLocationSelector />
       </Box>
-    </Section>
+    </OldSection>
 
-    <Section>
+    <OldSection>
       <img src={NamasImgSrc} alt="" />
-    </Section>
+    </OldSection>
   </Container>
 );
 
-export default RegionsPage;
+export default OldRegionsPage;

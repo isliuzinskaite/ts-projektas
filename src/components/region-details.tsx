@@ -11,11 +11,11 @@ import {
   Typography,
 } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import { useGetLocationQuery } from '../services/region-api';
-import { Location } from '../types';
+import { useGetRegionQuery } from '../services/region-api';
+import { Region } from '../types';
 import getAdmin from '../services/get-admin';
 
-const LocationFragment = ({ location }: { location: Location }) => {
+const RegionFragment = ({ region }: { region: Region }) => {
   const [admin] = useState(getAdmin);
   const [deleteError, setDeleteError] = useState<any | null>(null);
   const [deleteLoading, setDeleteLoading] = useState<boolean>(false);
@@ -29,7 +29,7 @@ const LocationFragment = ({ location }: { location: Location }) => {
     try {
       setDeleteLoading(true);
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:1337/api/properties/${id}`, {
+      const response = await fetch(`http://localhost:1337/api/locations/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -40,10 +40,10 @@ const LocationFragment = ({ location }: { location: Location }) => {
       if (response.status === 200) {
         window.location.href = '/';
       } else {
-        setDeleteError(`Ištrinti būsto nepavyko, bandykite dar kartą. Klaida: ${responseJSON.error}`);
+        setDeleteError(`Ištrinti vietovės nepavyko, bandykite dar kartą. Klaida: ${responseJSON.error}`);
       }
     } catch (err) {
-      setDeleteError('Ištrinti būsto nepavyko, serverio klaida.');
+      setDeleteError('Ištrinti vietovės nepavyko, serverio klaida.');
     }
     setDeleteLoading(false);
   };
@@ -51,48 +51,46 @@ const LocationFragment = ({ location }: { location: Location }) => {
   return (
     <Container>
       <Typography variant="h5" sx={{ my: 2 }}>
-        {location.name}
+        {region.name}
       </Typography>
       <Grid container spacing={5} alignItems="flex-end">
-        {location.properties.map((property) => (
+        {region.locations.map((location) => (
           <Grid
             item
-            key={property.id}
+            key={location.id}
             xs={12}
             sm={6}
             md={4}
           >
             <Card>
               <CardHeader
-                title={property.title}
+                title={location.name}
+                subheader={`Būstai: ${location.properties.length}`}
                 titleTypographyProps={{ align: 'center' }}
               />
-              <CardContent>
-                <Typography>
-                  Adresas:
-                  {' '}
-                  {property.address}
-                </Typography>
-                <Typography>
-                  Tel.:
-                  {' '}
-                  {property.phone}
-                </Typography>
-              </CardContent>
+              <CardActions>
+                <Button
+                  fullWidth
+                  variant="outlined"
+                  href={`/locations/${location.id}`}
+                >
+                  Visi būstai
+                </Button>
+              </CardActions>
               {admin
                 && (
                   <CardActions>
                     <Button
                       variant="text"
                       color="secondary"
-                      href={`/properties/${property.id}/edit`}
+                      href={`/locations/${location.id}/edit`}
                     >
                       Redaguoti
                     </Button>
                     <Button
                       variant="text"
                       color="warning"
-                      onClick={(e) => remove(property.id)}
+                      onClick={(e) => remove(location.id)}
                     >
                       Trinti
                     </Button>
@@ -106,23 +104,23 @@ const LocationFragment = ({ location }: { location: Location }) => {
   );
 };
 
-const LocationDetails: React.FC = () => {
+const RegionDetails: React.FC = () => {
   // https://lifesaver.codes/answer/possible-useparams-typescript-broken-definition-8200
-  const { locationId } = useParams() as { locationId: string };
+  const { regionId } = useParams() as { regionId: string };
   const {
-    data: locationData,
+    data: regionData,
     isLoading,
     isSuccess,
     isError,
     error,
-  } = useGetLocationQuery(locationId);
+  } = useGetRegionQuery(regionId);
 
   let content;
 
   if (isLoading) {
     content = <>Kraunama...</>;
   } else if (isSuccess) {
-    content = <LocationFragment location={locationData.location} />;
+    content = <RegionFragment region={regionData.region} />;
   } else if (isError) {
     content = <>{error.toString()}</>;
   }
@@ -133,4 +131,4 @@ const LocationDetails: React.FC = () => {
   );
 };
 
-export default LocationDetails;
+export default RegionDetails;
