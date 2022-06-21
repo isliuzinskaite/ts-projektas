@@ -4,7 +4,6 @@ import {
   Button,
   Container,
 } from '@mui/material';
-// import Locations from '../components/locations';
 import Regions from '../components/regions';
 import getAdmin from '../services/get-admin';
 
