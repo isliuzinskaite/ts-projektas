@@ -3,9 +3,7 @@ import {
   Button,
   Card,
   CardActions,
-  CardContent,
   CardHeader,
-  CardMedia,
   Container,
   Grid,
   Typography,
@@ -17,12 +15,12 @@ import getAdmin from '../services/get-admin';
 
 const RegionFragment = ({ region }: { region: Region }) => {
   const [admin] = useState(getAdmin);
-  const [deleteError, setDeleteError] = useState<any | null>(null);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
   const [deleteLoading, setDeleteLoading] = useState<boolean>(false);
 
   const remove = async (id: string) => {
     // https://thewebdev.info/2021/09/19/how-to-fix-the-no-restricted-globals-eslint-error-when-developing-a-react-app/#:~:text=a%20React%20App-,To%20fix%20the%20'No%20restricted%20globals'%20ESLint%20Error%20when%20developing,variable%20that%20causes%20the%20error.
-    // eslint-disable-next-line no-restricted-globals
+    // eslint-disable-next-line no-restricted-globals, no-alert
     if (confirm('Ar tikrai?') !== true) return;
 
     setDeleteError(null);
@@ -90,7 +88,7 @@ const RegionFragment = ({ region }: { region: Region }) => {
                     <Button
                       variant="text"
                       color="warning"
-                      onClick={(e) => remove(location.id)}
+                      onClick={() => remove(location.id)}
                     >
                       Trinti
                     </Button>
@@ -100,6 +98,10 @@ const RegionFragment = ({ region }: { region: Region }) => {
           </Grid>
         ))}
       </Grid>
+      {deleteError
+        && (<Typography>Klaida: vietovės ištrinti nepavyko</Typography>)}
+      {deleteLoading
+        && (<Typography>Vietovė trinama, prašome palaukti</Typography>)}
     </Container>
   );
 };

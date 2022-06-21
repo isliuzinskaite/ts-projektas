@@ -3,7 +3,6 @@ import {
   Box,
   Button,
   Container,
-  Typography,
 } from '@mui/material';
 // import Locations from '../components/locations';
 import Regions from '../components/regions';

@@ -6,11 +6,9 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import getAdmin from '../services/get-admin';
 
 const RegionNewPage: React.FC = () => {
-  const [admin] = useState(getAdmin);
-  const [error, setError] = useState<any | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {

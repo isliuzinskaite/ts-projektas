@@ -9,10 +9,9 @@ import {
 import { useParams } from 'react-router-dom';
 import { useGetPropertyQuery } from '../services/region-api';
 import { Property } from '../types';
-import getAdmin from '../services/get-admin';
 
 const PropertyForm = ({ property }: { property: Property }) => {
-  const [submitError, setSubmitError] = useState<any | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitLoading, setSubmitLoading] = useState<boolean>(false);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -132,8 +131,6 @@ const PropertyForm = ({ property }: { property: Property }) => {
 };
 
 const PropertyEditPage: React.FC = () => {
-  const [admin] = useState(getAdmin);
-
   const { propertyId } = useParams() as { propertyId: string };
   const {
     data: propertyData,

@@ -9,7 +9,7 @@ import {
 
 // https://github.com/mui/material-ui/blob/v5.8.4/docs/data/material/getting-started/templates/sign-in/SignIn.tsx
 const LoginPage: React.FC = () => {
-  const [error, setError] = useState<any | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
   // https://javascript.plainenglish.io/basic-react-login-using-external-api-e33322e480cd

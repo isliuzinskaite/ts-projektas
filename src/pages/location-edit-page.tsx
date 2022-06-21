@@ -9,10 +9,9 @@ import {
 import { useParams } from 'react-router-dom';
 import { useGetLocationQuery } from '../services/region-api';
 import { Location } from '../types';
-import getAdmin from '../services/get-admin';
 
 const LocationForm = ({ location }: { location: Location }) => {
-  const [submitError, setSubmitError] = useState<any | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitLoading, setSubmitLoading] = useState<boolean>(false);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -94,8 +93,6 @@ const LocationForm = ({ location }: { location: Location }) => {
 };
 
 const LocationEditPage: React.FC = () => {
-  const [admin] = useState(getAdmin);
-
   const { locationId } = useParams() as { locationId: string };
   const {
     data: locationData,

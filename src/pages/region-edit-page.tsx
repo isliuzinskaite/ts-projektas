@@ -9,10 +9,9 @@ import {
 import { useParams } from 'react-router-dom';
 import { useGetRegionQuery } from '../services/region-api';
 import { Region } from '../types';
-import getAdmin from '../services/get-admin';
 
 const RegionForm = ({ region }: { region: Region }) => {
-  const [submitError, setSubmitError] = useState<any | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitLoading, setSubmitLoading] = useState<boolean>(false);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -94,8 +93,6 @@ const RegionForm = ({ region }: { region: Region }) => {
 };
 
 const RegionEditPage: React.FC = () => {
-  const [admin] = useState(getAdmin);
-
   const { regionId } = useParams() as { regionId: string };
   const {
     data: regionData,
