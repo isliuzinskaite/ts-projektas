@@ -5,6 +5,7 @@ import {
   CardActions,
   CardContent,
   CardHeader,
+  CardMedia,
   Container,
   Grid,
   Typography,
@@ -66,6 +67,11 @@ const Regions: React.FC = () => {
                 <CardHeader
                   title={region.name}
                   titleTypographyProps={{ align: 'center' }}
+                />
+                <CardMedia
+                  component="img"
+                  height="256"
+                  image="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Home-icon.svg/768px-Home-icon.svg.png"
                 />
                 <CardContent>
                   <Typography>{`Vietovės: ${region.locations.length}`}</Typography>

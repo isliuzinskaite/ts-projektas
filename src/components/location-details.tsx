@@ -5,6 +5,7 @@ import {
   CardActions,
   CardContent,
   CardHeader,
+  CardMedia,
   Container,
   Grid,
   Typography,
@@ -67,6 +68,11 @@ const LocationFragment = ({ location }: { location: Location }) => {
                 titleTypographyProps={{ align: 'center' }}
               />
               <CardContent>
+                <CardMedia
+                  component="img"
+                  height="194"
+                  image={property.image}
+                />
                 <Typography>
                   Adresas:
                   {' '}

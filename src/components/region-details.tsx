@@ -4,6 +4,7 @@ import {
   Card,
   CardActions,
   CardHeader,
+  CardMedia,
   Container,
   Grid,
   Typography,
@@ -65,6 +66,11 @@ const RegionFragment = ({ region }: { region: Region }) => {
                 title={location.name}
                 subheader={`Būstai: ${location.properties.length}`}
                 titleTypographyProps={{ align: 'center' }}
+              />
+              <CardMedia
+                component="img"
+                height="256"
+                image="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Home-icon.svg/768px-Home-icon.svg.png"
               />
               <CardActions>
                 <Button
